@@ -10,7 +10,7 @@ bool isPrime(unsigned __int16 n, unsigned __int16 x)
     //std::cout << "*" << x << "_" << n/3 << "\n";
 
     //Only checking odd, so only testing with odd
-    for (unsigned __int16 i = 3; i <= n/3; i +=  2)// i <= n/3 is faster speed then x as its a smaller number 
+    for (unsigned __int16 i = 3; i <= x; i +=  2)//Needs a speed test to see if n/3 or x is faster 
         if (!(n % i))
             return false;
     return true;
@@ -28,8 +28,9 @@ void main()
         if (isPrime(i, x)) 
         {
             std::cout << i << "\n";
-            //If i can't be divided by any number up to the lost prime. i is prime
-            x = i;  
+            //square root. if i is grater then (x+1)*(x+1) then x+1
+            if(i > (x+1)*(x+1))
+                x ++;  
         }     
     std::cout << "End Progam!\n";
 }
